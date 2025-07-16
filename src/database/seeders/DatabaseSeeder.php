@@ -11,10 +11,16 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        $this->call([
-            CategoriesTableSeeder::class,
-            ContactSeeder::class,]);
+    \App\Models\User::factory()->create([
+        'name' => 'admin',
+        'email' => 'admin@example.com',
+    ]);
+
+    $this->call([
+        CategoriesTableSeeder::class,
+        ContactSeeder::class,
+    ]);
     }
 }
